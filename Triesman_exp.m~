@@ -52,13 +52,13 @@ end
 %% this loop selects the distribution matrix based on the condition input
 if strcmp(cond, 'c')
     % Assigning the conjunctive distribution
-    distribution = [target, (n/4); (n/2 - target), (n/4)];
+    distribution = [target, (n/2 - target); (n/4), (n/4)];
 elseif strcmp(cond, 'dsym')
     % Assigning the disjunctive symbol distribution
-    distribution = [target, (n/2 - target); 0, (n/2)];
+    distribution = [target, (n/2 - target); (n/2), 0];
 else
     % Assigning the disjunctive colour distribution
-    distribution = [target, 0; (n/2 - target), (n/2)];
+    distribution = [target, (n/2 - target); 0, (n/2)];
 end
 
 % This uses the target matrix to flip the distribution matrix, according to the target type.
@@ -82,6 +82,8 @@ f = figure();
 loc = rand(n, 2);
 
 % plotting the objects
+
+
 red_x = 0;
 blue_x = 0;
 red_O = 0;
